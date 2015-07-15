@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guess: MyString
+  correct: false
+  user_id: 
+  round_number: 1
+
+two:
+  guess: MyString
+  correct: false
+  user_id: 
+  round_number: 1

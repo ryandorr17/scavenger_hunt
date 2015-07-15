@@ -1,0 +1,35 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>All Responses</h1>
+  <h3>These are visible only to admins</h3>
+
+  <p>need to add response summaries here. This will be our scoreboard. Need to sort descending</p>
+
+  <table class="table table-striped table-condensed table-responsive">
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Round</th>
+        <th>Guess</th>
+        <th>Correct?</th>
+        <th>Pic</th>
+        <th>Posted</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @responses.each do |response| %>
+        <tr>
+          <td><%= response.user_id %></td>
+          <td><%= response.round_number %></td>
+          <td><%= response.guess %></td>
+          <td><%= response.correct %></td>
+          <td><%= response.picture %></td>
+          <td><%= time_ago_in_words(response.updated_at) %> ago</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

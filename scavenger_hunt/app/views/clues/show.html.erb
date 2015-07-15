@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Stop:</strong>
+        <%= @clue.stop %>
+      </p>
+
+      <p>
+        <strong>Location:</strong>
+        <%= @clue.location %>
+      </p>
+
+      <p>
+        <strong>Time:</strong>
+        <%= @clue.time %>
+      </p>
+
+      <p>
+        <strong>Clue:</strong>
+        <%= @clue.clue %>
+      </p>
+
+      <p>
+        <strong>Answer:</strong>
+        <%= @clue.answer %>
+      </p>
+
+      <%= link_to 'Edit', edit_clue_path(@clue) %> |
+      <%= link_to 'Back', clues_path %>
+    </div>
+  </div>
+</div>

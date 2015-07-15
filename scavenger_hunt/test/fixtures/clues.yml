@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stop: 1
+  location: MyString
+  time: 1
+  clue: MyText
+  answer: MyString
+
+two:
+  stop: 1
+  location: MyString
+  time: 1
+  clue: MyText
+  answer: MyString

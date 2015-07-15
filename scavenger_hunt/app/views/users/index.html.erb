@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>All Active Participants</h1>
+      <ul class="users">
+        <% @users.each do |user| %>
+          <h3>Team Name: <%= user.team %> -- Current Round: <%= current_round(user) %></h3>
+          <ul>
+            <li>Player One: <%= user.name %></li>
+            <li>Player Two: <%= user.second_name %></li>
+          <% if user == current_user %>
+            <li><%= link_to "edit", edit_user_path(user) %></li>
+          <% end %>
+          <% if current_user.admin? && current_user != user %>
+            <li><p>Team Email: <%= user.email %></p></li>
+            <li><%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "You sure?" } %></li>
+          <% end %>
+          </ul>
+        <hr>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>All Spectators</h1>
+      <ul class="users">
+        <% @spectators.each do |user| %>
+          <ul>
+            <li>Name: <%= user.name %></li>
+          <% if user == current_user %>
+            <li><%= link_to "edit", edit_user_path(user) %></li>
+          <% end %>
+          <% if current_user.admin? && current_user != user %>
+            <li><p>Team Email: <%= user.email %></p></li>
+            <li><%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "You sure?" } %></li>
+          <% end %>
+          </ul>
+        <hr>
+        <% end %>
+      </ul>
+    </div>

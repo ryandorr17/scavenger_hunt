@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel">
+        <section class="user_info">
+          <h1><span>Team:</span><%= @user.team %></h1>
+          <h3><span>Player One:</span><%= @user.name %></h3>
+          <h3><span>Player Two:</span><%= @user.second_name %></h3>
+          <h3><span>Current Round:</span><%= current_round(@user) %> of 11</h3>
+          <p><%= link_to "edit team info", edit_user_path(@current_user) %></p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <% if @user == current_user %>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Your clue:</h3>
+        <% clue = @clues.find_by(stop: current_round(@user)) %>
+        <p><%= clue.clue %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <aside class="col-md-4 col-md-offset-2">
+        <section class="response_form">
+          <%= form_for(@response, html: { multipart: true}) do |f| %>
+            <div class="field">
+              <%= f.text_area :guess, placeholder: "Enter your guess..." %>
+            </div>
+            <%= f.hidden_field :round_number, :value => current_round(@user) %>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+            <div><%= f.file_field :picture, class: "btn" %></div>
+          <% end %>
+        </section>
+      </aside>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Your pics</h3>
+        <% @responses.each do |response| %>
+          <div><%= image_tag response.picture_url if response.picture? %></div>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+
+
+
+
+
+
+</div>

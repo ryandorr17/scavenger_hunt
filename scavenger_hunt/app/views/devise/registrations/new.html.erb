@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel sign-up">
+        <h2>Sign up</h2>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :team_name %><br />
+            <%= f.text_field :team, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :player_one_name %><br />
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :player_two_name %><br />
+            <%= f.text_field :second_name, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @validatable %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :spectator, class: "checkbox inline" do %><br />
+            <%= f.check_box :spectator, autofocus: true %>
+            <span>I would like to participate as a spectator/helper</span>
+            <% end %>
+          </div>
+
+
+
+
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

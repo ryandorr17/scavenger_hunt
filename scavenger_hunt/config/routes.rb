@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :clues
+
+  devise_for :users
   root 'welcome#index'
+
+  # get 'users' => 'users#index'
+
+  resources :users
+  resources :responses, only: [:create, :index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

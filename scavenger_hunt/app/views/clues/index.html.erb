@@ -1,0 +1,40 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>All Clues</h1>
+  <h3>These are visible only to admins</h3>
+
+  <table class="table table-striped table-condensed table-responsive">
+    <thead>
+      <tr>
+        <th>Stop</th>
+        <th>Location</th>
+        <th>Time</th>
+        <th>Clue</th>
+        <th>Answer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @clues.each do |clue| %>
+        <tr>
+          <td><%= clue.stop %></td>
+          <td><%= clue.location %></td>
+          <td><%= clue.time %></td>
+          <td><%= clue.clue %></td>
+          <td><%= clue.answer %></td>
+          <td><%= link_to 'Show', clue %></td>
+          <td><%= link_to 'Edit', edit_clue_path(clue) %></td>
+          <td><%= link_to 'Destroy', clue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Clue', new_clue_path %>
+
+</div>

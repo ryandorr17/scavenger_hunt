@@ -1,5 +1,59 @@
-<h1>PTY AMAZING RACE</h1>
-<p>Sign up!</p>
+<div class="main-background hidden-xs">
+  <%= image_tag("panama.JPG", class: "img-responsive") %>
+</div>
+
+<div class="container main-container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="jumbotron">
+
+        <h1 class="text-center">PTY AMAZING RACE</h1>
+        <h3 class="text-center">Panama City - Saturday June 13th</h3>
 
 
-<p>Here is some info about the race</p>
+        <% if !current_user %>
+        <p class="text-center"><%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+        <p class="text-center"><%= link_to "Sign in", new_user_session_path %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ul class="race-info">
+            <li><span>About the Race</span>Teams of two will compete in a race through Panama City. Teams will need to
+            navigate to 10 checkpoints where they must complete a challenge in order to recieve a clue that will lead to the
+            next checkpoint. Some tasks may be completed as a team while others must be completed by only one member.
+            Challenges may be mental, physical and/or involve a delecious beverage. Teams may run, walk or cab their way to
+            checkpoints. You may use the internet for help and may ask for help from anyone you meet along the way.</li>
+            <li><span>What if I want to join in, but not race</span>No problem, just register and click the "Spectator" box</li>
+            <li><span>How do I sign up?</span>Click the button above and enter your name and email (one
+              per team), team name and partner's name</li>
+            <li><span>When does it start</span>The race will start promptly at 1:30 PM, Saturday June 13th</li>
+            <li><span>Where does it start</span>Ryan and Beth's place - Area Social of PH Famagost Loft
+            on the corner of Calle 5 sur and Calle 76</li>
+            <li><span>How long will it take</span>We expect the full race to take around 4 hours</li>
+            <li><span>How far will I need to travel</span>You will need to walk anywhere from 1 to 3 miles, depending
+            on your preference for taking a cab.</li>
+            <li><span>What do I need to bring</span>Teams should bring a backpack with the following contents:
+              <ul>
+              <li>Dry bag for valuables in case of rain</li>
+              <li>About 20 dollars per person for the race (transporation, beverages and a snack)</li>
+              <li>Metro Card (Talk to James if you need help)</li>
+              <li>Extra money to BYOB for the afterparty</li>
+              <li>A phone with internet access and GPS</li>
+              <li>A matching team outfit for bonus style points</li>
+              <li>A great attitude!</li>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

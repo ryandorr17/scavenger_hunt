@@ -5,11 +5,27 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <% if current_user && current_user.admin? %>
+    <%= render 'layouts/admin_navbar' %>
+  <% elsif current_user %>
+    <%= render 'layouts/user_navbar' %>
+  <% else %>
+    <%= render 'layouts/default_navbar' %>
+  <% end %>
+
+
+  <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+  </div>
+
+
+
 
 <%= yield %>
 
